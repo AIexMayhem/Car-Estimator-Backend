@@ -2,7 +2,7 @@
 
 Единый backend-каталог для микросервисов Car Estimator.
 
-Фронтенд находится отдельно в соседней папке `Car-Estimator` и не входит в этот compose.
+Фронтенд находится отдельно и не входит в этот compose.
 
 ## Состав
 
@@ -15,21 +15,6 @@
 - `auth_db` - PostgreSQL для `authorization`.
 - `feed_db` - PostgreSQL для `feed`.
 - `redis` - хранилище сессий для `authorization`.
-
-## Структура
-
-```text
-car_estimator/
-  docker-compose.yml
-  .env.example
-  car_estimator_api_gateway/
-  car_estimator_authorization/
-  car_estimator_api_contracts/
-  CarEstimator_Feed/
-  CarEstimator_PredictionPrice/
-  CarEstimator_Chat/
-  CarEstimator_Purchase/
-```
 
 ## Быстрый запуск
 
