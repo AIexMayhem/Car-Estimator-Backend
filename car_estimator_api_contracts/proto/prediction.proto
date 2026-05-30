@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package car_estimator.predict;
+
+option go_package = "prediction.v1";
+
+service PredictionService {
+  rpc Predict(PredictRequest) returns (PredictResponse);
+  rpc GetImages(ImagesRequest) returns (ImagesResponse); 
+}
+
+message PredictRequest {
+  string make = 1;
+  string model = 2;
+  int32 year = 3;
+  int32 hp = 4;
+  string body = 5;
+  int32 yearsell = 6;
+  int32 odometer = 7;
+  string color = 8;
+}
+
+message PredictResponse {
+  int64 price = 1;
+  repeated string photo_urls = 2;
+  int32 sell_count = 3;
+  bytes graph_png = 4;
+}
+
+message ImagesRequest {
+  string make = 1;
+  string model = 2;
+  int32 year = 3;
+}
+
+message ImagesResponse {
+  repeated string photo_urls = 2;
+}

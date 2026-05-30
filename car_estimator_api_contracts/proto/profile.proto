@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package profile;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "profile.v1";
+
+service ProfileService {
+    rpc Register(RegisterRequest) returns (RegisterResponse) {};
+    rpc Unregister(google.protobuf.Empty) returns (google.protobuf.Empty) {};
+    rpc GetUser(UserRequest) returns (UserResponse) {};
+    rpc Login(LoginRequest) returns (LoginResponse) {};
+    rpc Logout(google.protobuf.Empty) returns (google.protobuf.Empty) {};
+    rpc Refresh(SourceData) returns (TokenResponse) {};
+}
+
+message UUID {
+    string value = 1;
+}
+
+message SourceData {
+    string ip = 1;
+    string userAgent = 2;
+}
+
+message RegiserRequest {
+    UUID userId = 1;
+}
+
+message TokenResponse {
+    string accessToken = 1;
+    string refreshToken = 2;
+}
+
+message LoginRequest {
+    string email = 1; 
+    string password = 2;
+    SourceData source = 3;
+}
+
+message LoginResponse {
+    UUID userId = 1;
+    TokenResponse tokens = 2;
+}
+
+message RegisterResponse {
+    UUID userId = 1;
+}
+
+message RegisterRequest {
+    string fullname = 1;
+    string email = 2; 
+    string phone = 3;
+    string password = 4;
+    int64 birthdate = 5; 
+}
+
+message UserRequest {
+    UUID userId = 1;
+}
+
+message UserResponse {
+    UUID userId = 1;
+    string fullname = 2;
+    string email = 3; 
+    string phone = 4;
+    int64 birthdate = 5;
+    int64 registerdate = 6;
+}
