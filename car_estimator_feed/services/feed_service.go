@@ -99,9 +99,7 @@ func (s *feedServiceImpl) GetListing(ctx context.Context, req *feedcontract.GetL
 }
 
 func (s *feedServiceImpl) CreateListing(ctx context.Context, req *feedcontract.CreateListingRequest) (*feedcontract.CreateListingResponse, error) {
-    fmt.Printf("[Icoming request] : %v\n", req.GetListing())
     dbL := convertProtoToDB(req.GetListing())
-    fmt.Printf("[Converted] : %v\n", dbL)
     dbL.ListingID = uuid.NewString()
     dbL.PostedAt = time.Now()
 
