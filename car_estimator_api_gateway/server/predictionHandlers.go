@@ -6,6 +6,7 @@ import (
 	"log/slog"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"google.golang.org/grpc"
 
@@ -47,7 +48,11 @@ func (h *PredictionHandler) GetImagesHandler(w http.ResponseWriter, r *http.Requ
 			http.Error(w, fmt.Sprintf("param %s is missing", k), http.StatusBadRequest)
 			return
 		}
-		carInfo[k] = param
+		carInfo[k] = strings.TrimSpace(param)
+		if carInfo[k] == "" {
+			http.Error(w, fmt.Sprintf("param %s is empty", k), http.StatusBadRequest)
+			return
+		}
 	}
 
 	log.Info(
@@ -91,6 +96,10 @@ func (h *PredictionHandler) PredictionHandler(w http.ResponseWriter, r *http.Req
 		http.Error(w, "failed to decode prediction request body: " + err.Error(), http.StatusBadRequest)
 		return
 	}
+	if err := validatePredictionRequest(params); err != nil {
+		http.Error(w, "invalid prediction request: " + err.Error(), http.StatusBadRequest)
+		return
+	}
 
 	log.Info(
 		"Send given params to the prediction service...",
@@ -125,4 +134,38 @@ func (h *PredictionHandler) PredictionHandler(w http.ResponseWriter, r *http.Req
 		Urls: response.GetPhotoUrls(),
 		GraphImg: imageB64,
 	})
+}
+
+func validatePredictionRequest(params *domain.PredictionRequest) error {
+	params.Make = strings.TrimSpace(params.Make)
+	params.Model = strings.TrimSpace(params.Model)
+	params.Body = strings.TrimSpace(params.Body)
+	params.Color = strings.TrimSpace(params.Color)
+
+	if params.Make == "" {
+		return fmt.Errorf("make is required")
+	}
+	if params.Model == "" {
+		return fmt.Errorf("model is required")
+	}
+	if params.Body == "" {
+		return fmt.Errorf("body is required")
+	}
+	if params.Color == "" {
+		return fmt.Errorf("color is required")
+	}
+	if params.Year < 1886 {
+		return fmt.Errorf("year must be 1886 or later")
+	}
+	if params.YearSell < params.Year {
+		return fmt.Errorf("yearSell must be greater than or equal to year")
+	}
+	if params.Hp <= 0 {
+		return fmt.Errorf("hp must be greater than 0")
+	}
+	if params.Odometer < 0 {
+		return fmt.Errorf("odometer must not be negative")
+	}
+
+	return nil
 }
