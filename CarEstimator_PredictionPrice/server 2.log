@@ -1,0 +1,8 @@
+2025-06-17 18:03:46     INFO PredictionServer: gRPC server started, listening on [::]:50051
+2025-06-17 18:03:54     INFO PredictionServer: Received Predict request: make=Audi, model=A8, year=2010, hp=300, body=Sedan, yearsell=2021, odometer=100000, color=White
+2025-06-17 18:03:54     INFO PredictionServer: Sending Predict response: price=15635, photos=11 urls, sells=685
+2025-06-17 18:07:08     INFO PredictionServer: Server stopping by KeyboardInterrupt
+2025-06-17 18:08:01     INFO PredictionServer: gRPC server started, listening on [::]:50051
+2025-06-17 18:12:24     INFO PredictionServer: Received Predict request: make=Audi, model=A8, year=2010, hp=300, body=Sedan, yearsell=2021, odometer=100000, color=White
+2025-06-17 18:12:24     INFO PredictionServer: Sending Predict response: price=14714, photos=11 urls, sells=685
+2025-06-17 18:23:11     INFO PredictionServer: Server stopping by KeyboardInterrupt

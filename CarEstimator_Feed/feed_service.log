@@ -1,0 +1,45 @@
+time=2025-06-11T17:47:29.411+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:70" msg="Logger initialized" env=local log_file=./feed_service.log
+time=2025-06-11T17:47:29.575+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:88" msg="Database connected" addr=localhost:5432 db_name=feeddb
+time=2025-06-11T17:55:36.663+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:60" msg="Logger initialized" env=local log_file=./feed_service.log
+time=2025-06-11T17:55:36.821+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:75" msg="Database connected" addr=localhost:5432 db_name=feeddb
+time=2025-06-11T17:55:36.830+03:00 level=ERROR source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:80" msg="Migrator init failed" error="cannot init migration tool: failed to open source, \"file://database\\\\migrations\": parse \"file://database\\\\migrations\": invalid character \"\\\\\" in host name"
+time=2025-06-11T17:56:07.110+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:67" msg="Logger initialized" env=local log_file=./feed_service.log
+time=2025-06-11T17:56:07.272+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:84" msg="Database connected" addr=localhost:5432 db_name=feeddb
+time=2025-06-11T17:56:07.840+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:97" msg="Migrations applied successfully"
+time=2025-06-11T17:56:07.840+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:114" msg="FeedService is running on :50051"
+time=2025-06-11T18:28:15.625+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:121" msg="Shutdown signal received; stopping gRPC server..."
+time=2025-06-11T18:28:20.626+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:129" msg="gRPC server stopped. Exiting."
+time=2025-06-11T18:31:26.153+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:67" msg="Logger initialized" env=local log_file=./feed_service.log
+time=2025-06-11T18:31:26.303+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:84" msg="Database connected" addr=localhost:5432 db_name=feeddb
+time=2025-06-11T18:31:26.311+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:97" msg="Migrations applied successfully"
+time=2025-06-11T18:31:26.311+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:114" msg="FeedService is running on :50051"
+time=2025-06-11T18:31:31.811+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:27" msg="gRPC request" method=/feed.FeedService/ListFeed request="page:{page_number:1  page_size:10}  sort_by:SORT_DATE_DESC"
+time=2025-06-11T18:33:48.593+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:121" msg="Shutdown signal received; stopping gRPC server..."
+time=2025-06-11T18:33:53.594+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:129" msg="gRPC server stopped. Exiting."
+time=2025-06-12T20:02:11.630+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:67" msg="Logger initialized" env=local log_file=./feed_service.log
+time=2025-06-12T20:02:12.326+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:84" msg="Database connected" addr=localhost:5432 db_name=feeddb
+time=2025-06-12T20:02:12.466+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:97" msg="Migrations applied successfully"
+time=2025-06-12T20:02:12.467+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:114" msg="FeedService is running on :50051"
+time=2025-06-12T20:08:25.668+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/GetListing request="listing_id:\"REPLACE_WITH_ID\""
+time=2025-06-12T20:08:26.104+03:00 level=ERROR source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:31" msg="gRPC error" method=/feed.FeedService/GetListing error="listing not found: REPLACE_WITH_ID"
+time=2025-06-12T20:08:34.024+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/ListListings request="page:{page_number:1 page_size:5}"
+time=2025-06-12T20:09:17.467+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/SearchListings request="query:\"Toyota\" page:{page_number:1 page_size:5} sort_by:SORT_PRICE_ASC"
+time=2025-06-12T20:09:22.137+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/SearchListings request="query:\"Toyota\" page:{page_number:1 page_size:5} sort_by:SORT_PRICE_ASC"
+time=2025-06-12T20:09:33.987+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/CreateListing request="listing:{seller_id:\"user123\" description:\"Отличный автомобиль\" status:\"AVAILABLE\" deal_type:\"SALE\" price:20000}"
+time=2025-06-12T20:10:11.200+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/DeleteListing request="listing_id:\"c2e03527-49a2-49eb-a9e8-c9ebce383cb8\""
+time=2025-06-12T20:10:44.277+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/AddToFavorites request="user_id:\"user123\" listing_id:\"22222222-2222-2222-2222-222222222222\""
+time=2025-06-12T20:11:14.561+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/GetListing request="listing_id:\"22222222-2222-2222-2222-222222222222\""
+time=2025-06-12T20:11:46.944+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/grpc_server/server.go:28" msg="gRPC request" method=/feed.FeedService/SearchListings request="query:\"Honda\" page:{page_number:1 page_size:5} sort_by:SORT_PRICE_ASC"
+time=2025-06-12T20:15:30.144+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:121" msg="Shutdown signal received; stopping gRPC server..."
+time=2025-06-12T20:16:13.958+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:67" msg="Logger initialized" env=local log_file=./feed_service.log
+time=2025-06-12T20:16:14.181+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:84" msg="Database connected" addr=localhost:5432 db_name=feeddb
+time=2025-06-12T20:16:14.191+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:97" msg="Migrations applied successfully"
+time=2025-06-12T20:16:14.192+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:114" msg="FeedService is running on :50051"
+time=2025-06-12T20:21:13.039+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:121" msg="Shutdown signal received; stopping gRPC server..."
+time=2025-06-12T20:21:18.040+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:129" msg="gRPC server stopped. Exiting."
+time=2025-06-12T20:28:18.541+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:67" msg="Logger initialized" env=local log_file=./feed_service.log
+time=2025-06-12T20:28:18.695+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:84" msg="Database connected" addr=localhost:5432 db_name=feeddb
+time=2025-06-12T20:28:18.704+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:97" msg="Migrations applied successfully"
+time=2025-06-12T20:28:18.704+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:114" msg="FeedService is running on :50051"
+time=2025-06-12T20:28:31.469+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:121" msg="Shutdown signal received; stopping gRPC server..."
+time=2025-06-12T20:28:36.469+03:00 level=INFO source="E:/visualcode projects/CarEstimator/CarEstimator_Feed/main.go:129" msg="gRPC server stopped. Exiting."
