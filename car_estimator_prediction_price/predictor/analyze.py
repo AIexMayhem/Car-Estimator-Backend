@@ -6,6 +6,7 @@ import random
 from scipy.interpolate import make_interp_spline
 import matplotlib.pyplot as plt
 from io import BytesIO
+from predictor.lookup import build_photo_key, build_sell_key, ensure_min_photos
 
 plt.switch_backend('agg')
 
@@ -52,17 +53,14 @@ def get_car_info(make: str, model: str, year: int, hp: int,
     return price + random.randint(-price // 10, price // 10)
 
 def get_photos(make: str, model: str, year: int) -> list[str]:
-    key = f"{make.replace(' ', '_')}/{model.replace(' ', '_')}/{year}"
+    key = build_photo_key(make, model, year)
     for _, row in pics.iterrows():
         if row['Car'] == key:
-            photos = row['Pics'].split()
-            while 0 < len(photos) < 3:
-                photos.append(photos[0])
-            return photos
+            return ensure_min_photos(row['Pics'].split())
     return []
 
 def get_sells(make: str, model: str) -> int:
-    key = f"{make} | {model}"
+    key = build_sell_key(make, model)
     for _, row in sells.iterrows():
         if row['Car'] == key:
             return int(row['Count'])
