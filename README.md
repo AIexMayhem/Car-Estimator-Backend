@@ -16,6 +16,12 @@
 - `feed_db` - PostgreSQL для `feed`.
 - `redis` - хранилище сессий для `authorization`.
 
+## Требования
+
+- Docker.
+- Docker Compose v2.
+- Свободные локальные порты, указанные в разделе `Порты`.
+
 ## Быстрый запуск
 
 ```bash
