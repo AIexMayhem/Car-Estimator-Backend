@@ -1,0 +1,181 @@
+syntax = "proto3";
+
+package feed;
+
+option go_package = "github.com/nikita-itmo-gh-acc/car_estimator_api_contracts/gen/feed_v1;feed_v1";
+
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
+service FeedService {
+    rpc ListListings (ListListingsRequest) returns (ListListingsResponse) {
+        option (google.api.http) = {
+        get: "/v1/listings"
+        };
+    }
+
+    rpc GetListing (GetListingRequest) returns (GetListingResponse) {
+        option (google.api.http) = {
+        get: "/v1/listings/{listing_id}"
+        };
+    }
+
+    rpc SearchListings (SearchListingsRequest) returns (SearchListingsResponse) {
+        option (google.api.http) = {
+        get: "/v1/listings:search"
+        additional_bindings {
+            get: "/v1/listings"
+        }
+        };
+    }
+
+    rpc CreateListing (CreateListingRequest) returns (CreateListingResponse) {
+        option (google.api.http) = {
+        post: "/v1/listings"
+        body: "listing"
+        };
+    }
+
+    rpc UpdateListing (UpdateListingRequest) returns (UpdateListingResponse) {
+        option (google.api.http) = {
+        put: "/v1/listings/{listing.listing_id}"
+        body: "listing"
+        };
+    }
+
+    rpc DeleteListing (DeleteListingRequest) returns (DeleteListingResponse) {
+        option (google.api.http) = {
+        delete: "/v1/listings/{listing_id}"
+        };
+    }
+
+    rpc AddToFavorites (AddToFavoritesRequest) returns (AddToFavoritesResponse) {
+        option (google.api.http) = {
+        post: "/v1/users/{user_id}/favorites"
+        body: "*"
+        };
+    }
+}
+
+message CarListing {
+    string listing_id = 1;
+    string seller_id = 2;
+    string description = 3;
+    google.protobuf.Timestamp posted_at = 4;
+    string status =5;
+    string deal_type = 6;
+    double price = 7;
+    repeated string tags = 8;
+
+    string car_id = 9;
+    int32 mileage = 10;
+    int32 owners_count = 11;
+    int32 accidents_count = 12;
+    string condition = 13;
+    string color = 14;
+
+    string config_id = 15;
+    string engine_type = 16;
+    string engine_volume = 17;
+    int32 engine_power = 18;
+    int32 cylinders = 19;
+    string transmission = 20;
+    string drivetrain = 21;
+
+    string model_id = 22;
+    string model_name = 23;
+    string make = 24;
+    int32 year = 25;
+    string body_type = 26;
+    string generation = 27;
+    double weight_kg = 28;
+
+    string seller_name = 29;
+    double seller_rating = 31;
+    int32 seller_sales_count = 32;
+    bool seller_is_business = 33;
+
+}
+
+message PageRequest {
+    int32 page_number = 1;
+    int32 page_size = 2;
+}
+
+enum SortBy {
+    SORT_UNSPECIFIED = 0;
+    SORT_DATE_DESC = 1;
+    SORT_DATE_ASC = 2;
+    SORT_PRICE_DESC = 3;
+    SORT_PRICE_ASC = 4;
+    SORT_MILEAGE_DESC = 5;
+    SORT_MILEAGE_ASC = 6;
+}
+
+message PageResponseMetadata {
+    int32 total_items = 1;
+    int32 total_pages = 2;
+    int32 current_page = 3;
+}
+
+message ListListingsRequest {
+    PageRequest page    = 1;
+    SortBy      sort_by = 2;
+}
+
+message ListListingsResponse {
+    repeated CarListing      listings      = 1;
+    PageResponseMetadata     page_metadata = 2;
+}
+
+message SearchListingsRequest {
+    string      query   = 1;
+    PageRequest page    = 2;
+    SortBy      sort_by = 3;
+}
+
+message SearchListingsResponse {
+    repeated CarListing      listings      = 1;
+    PageResponseMetadata     page_metadata = 2;
+}
+
+message GetListingRequest {
+    string listing_id = 1;
+}
+
+message GetListingResponse {
+    CarListing listing = 1;
+}
+
+message CreateListingRequest {
+    CarListing listing = 1;
+}
+
+message CreateListingResponse {
+      CarListing listing = 1;
+}
+
+message UpdateListingRequest {
+      CarListing listing = 1;
+}
+
+message UpdateListingResponse {
+    CarListing listing = 1;
+}
+
+message DeleteListingRequest {
+    string listing_id = 1;
+}
+
+message DeleteListingResponse {
+    bool success = 1;
+}
+
+message AddToFavoritesRequest {
+    string user_id    = 1;
+    string listing_id = 2;
+}
+
+message AddToFavoritesResponse {
+    bool success = 1;
+}
