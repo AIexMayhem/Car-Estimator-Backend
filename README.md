@@ -162,3 +162,14 @@ docker compose config
 ```bash
 docker compose config --quiet
 ```
+
+## Диагностика
+
+Если сервис не стартует, сначала проверь статус контейнеров и последние логи:
+
+```bash
+docker compose ps
+docker compose logs --tail=100
+```
+
+Если порт уже занят, поменяй соответствующую переменную в `.env` и перезапусти compose.
