@@ -28,7 +28,19 @@
 docker compose up -d
 ```
 
+Или через Makefile:
+
+```bash
+make up
+```
+
 Compose использует дефолтные значения переменных, поэтому `.env` не обязателен для локального запуска.
+
+## Документация
+
+- [Архитектура](docs/architecture.md)
+- [Сервисы](docs/services.md)
+- [Локальная разработка](docs/local-development.md)
 
 ## Настройка окружения
 
@@ -162,6 +174,8 @@ docker compose config
 ```bash
 docker compose config --quiet
 ```
+
+Тот же набор часто используемых команд доступен через `Makefile`: `make build`, `make up`, `make down`, `make logs`, `make config`.
 
 ## Диагностика
 
