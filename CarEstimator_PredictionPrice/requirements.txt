@@ -1,8 +1,0 @@
-grpcio
-grpcio-tools
-pandas
-numpy
-scipy
-matplotlib
-joblib
-scikit-learn==1.6.1
