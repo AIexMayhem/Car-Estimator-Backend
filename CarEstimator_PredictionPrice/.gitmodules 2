@@ -1,0 +1,3 @@
+[submodule "proto"]
+	path = proto
+	url = https://github.com/nikita-itmo-gh-acc/car_estimator_api_contracts.git
