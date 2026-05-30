@@ -16,8 +16,6 @@
 - `feed_db` - PostgreSQL для `feed`.
 - `redis` - хранилище сессий для `authorization`.
 
-В каталоге также лежат `CarEstimator_Chat` и `CarEstimator_Purchase`, но они не подключены к compose, потому что сейчас в них нет Dockerfile и исполняемого сервиса.
-
 ## Структура
 
 ```text
@@ -36,7 +34,6 @@ car_estimator/
 ## Быстрый запуск
 
 ```bash
-cd /Users/alexmiami/Documents/GitHub/car_estimator
 docker compose up -d
 ```
 
