@@ -181,7 +181,7 @@ func (s *AuthService) Refresh(ctx context.Context, refreshToken string, source d
 		return nil, fmt.Errorf("refresh error - %w", err)
 	}
 
-	if session.IpAddress != source.IpAddress && session.UserAgent != source.UserAgent {
+	if session.IpAddress != source.IpAddress || session.UserAgent != source.UserAgent {
 		return nil, ErrSourceChanged
 	}
 
