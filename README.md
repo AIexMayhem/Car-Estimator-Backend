@@ -2,7 +2,7 @@
 
 Единый backend-каталог для микросервисов Car Estimator.
 
-Фронтенд находится отдельно в соседней папке `Car-Estimator` и не входит в этот compose.
+Фронтенд находится отдельно и не входит в этот compose.
 
 ## Состав
 
@@ -16,20 +16,11 @@
 - `feed_db` - PostgreSQL для `feed`.
 - `redis` - хранилище сессий для `authorization`.
 
-## Структура
+## Требования
 
-```text
-car_estimator/
-  docker-compose.yml
-  .env.example
-  car_estimator_api_gateway/
-  car_estimator_authorization/
-  car_estimator_api_contracts/
-  CarEstimator_Feed/
-  CarEstimator_PredictionPrice/
-  CarEstimator_Chat/
-  CarEstimator_Purchase/
-```
+- Docker.
+- Docker Compose v2.
+- Свободные локальные порты, указанные в разделе `Порты`.
 
 ## Быстрый запуск
 
@@ -171,3 +162,14 @@ docker compose config
 ```bash
 docker compose config --quiet
 ```
+
+## Диагностика
+
+Если сервис не стартует, сначала проверь статус контейнеров и последние логи:
+
+```bash
+docker compose ps
+docker compose logs --tail=100
+```
+
+Если порт уже занят, поменяй соответствующую переменную в `.env` и перезапусти compose.
