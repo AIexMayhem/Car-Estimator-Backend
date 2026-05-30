@@ -2,3 +2,7 @@
 .DS_Store
 *.log
 .nested-git-backup/
+
+# Local conflict/copy artifacts.
+* [0-9]
+* [0-9].*
